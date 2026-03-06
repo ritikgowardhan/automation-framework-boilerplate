@@ -1,0 +1,27 @@
+{
+  "name": "rg-testforge",
+  "version": "1.0.1",
+  "description": "Automation framework starter kit with clean folder structure",
+  "main": "index.js",
+  "bin": {
+    "testforge": "./index.js"
+  },
+  "keywords": [
+    "automation",
+    "selenium",
+    "playwright",
+    "framework",
+    "blueprint",
+    "testing"
+  ],
+  "author": {
+    "name": "Ritik Gowardhan",
+    "email": "your-email@example.com",
+    "url": "https://github.com/ritikgowardhan"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^11.1.1",
+    "inquirer": "^9.0.0"
+  }
+}

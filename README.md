@@ -1,0 +1,78 @@
+⚡ TestForge
+TestForge is a reusable automation framework starter kit that helps you kickstart your automation journey without worrying about folder structures or boilerplate setup.
+
+It provides a clean, modular, and scalable folder structure suitable for Selenium, Playwright, Cypress, TestCafe, and other UI/API automation frameworks.
+🚀 Features
+•	✔️ Pre-defined folder structure for automation projects
+•	✔️ Framework-agnostic (works with Selenium, Playwright, Cypress, TestCafe, etc.)
+•	✔️ Includes helpers (error handler, logger, xpath handler)
+•	✔️ Config folder to store environment/browser settings
+•	✔️ Utilities folder for shared functions (data generators, API clients, etc.)
+•	✔️ Ready for reporting integration (Allure, Extent, Playwright Report, etc.)
+•	✔️ Keeps your tests modular and maintainable
+
+📂 Folder Structure
+When you initialize a project with TestForge, this is what you get:
+
+<your_project_name>/
+  ├─ helpers/
+  │   ├─ xpathHandler.js
+  │   ├─ errorHandler.js
+  │   └─ logger.js
+  │
+  ├─ pages/
+  │   ├─ common/             ← shared components (nav bar, footer, modals)
+  │   ├─ auth/               ← login, signup, password reset
+  │   ├─ dashboard/          ← dashboard/home modules
+  │   └─ settings/           ← profile, account, preferences
+  │
+  ├─ tests/
+  │   ├─ auth/               ← tests for login/signup flows
+  │   ├─ dashboard/          ← tests for dashboard flows
+  │   ├─ settings/           ← tests for profile/account flows
+  │   
+  │
+  ├─ configs/
+  │   └─ example.config.js   ← environment/browser configs
+  │
+  ├─ reports/                ← test reports (HTML, Allure, JUnit, etc.)
+  │
+  ├─ utils/
+  │   └─ dataGenerator.js    ← random data & helper utilities
+  │
+  ├─ package.json
+  └─ README.md
+
+📦 Installation
+```bash
+npm install -g testforge
+```
+🛠 Usage
+1.	Create a new project folder:
+```bash
+mkdir my_automation_project
+cd my_automation_project
+```
+2.	Run TestForge:
+```bash
+testforge
+```
+3.	Choose your setup:
+- Generic → Empty structure ready for any framework
+- With Sample Files → Includes placeholders (samplePage, sampleTest)
+📑 Example Usage
+- Playwright:
+  - Add your Playwright test specs inside tests/
+  - Add page objects inside pages/
+  - Update configs in configs/example.config.js
+
+- Selenium:
+  - Implement Page Object Model in pages/
+  - Write JUnit/TestNG tests inside tests/
+  - Store WebDriver/browser settings in configs/
+👨‍💻 Author
+Ritik Gowardhan
+📧 ritikgowardhan1@gmail.com
+🌐 ritikgowardhan (ritikgowardhan) · GitHub
+📜 License
+This project is licensed under the MIT License — feel free to use and customize it.
