@@ -1,8 +1,17 @@
+/**
+ * errorHandler.js
+ *
+ * Description:
+ * Centralized error handling utility for the automation framework.
+ *
+ * Responsibilities:
+ * - Capture and log test execution errors
+ * - Provide meaningful error messages
+ * - Improve debugging and troubleshooting
+ */
+
 import { t } from 'testcafe';
 
-/**
- * Logs and handles errors during test execution.
- */
 export async function handleError(testName, error) {
     console.error(`❌ Error occurred in test: ${testName}`);
     console.error(`Message: ${error.message}`);
