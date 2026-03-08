@@ -1,6 +1,6 @@
 {
   "name": "rg-testforge",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Automation framework starter kit with clean folder structure",
   "main": "index.js",
   "bin": {
@@ -12,11 +12,11 @@
     "playwright",
     "framework",
     "blueprint",
-    "testing"
+    "testing" 
   ],
   "author": {
     "name": "Ritik Gowardhan",
-    "email": "your-email@example.com",
+    "email": "ritikgowardhan1@gmail.com",
     "url": "https://github.com/ritikgowardhan"
   },
   "license": "MIT",
