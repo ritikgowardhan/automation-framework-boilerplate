@@ -1,4 +1,18 @@
-#!/usr/bin/env node
+/**
+ * index.js
+ *
+ * Description:
+ * Entry point of the TestForge automation framework CLI.
+ *
+ * Responsibilities:
+ * - Initialize the framework
+ * - Generate folder structures
+ * - Setup project scaffolding
+ *
+ * Usage:
+ * npx testforge init
+ */
+
 const fs = require("fs-extra");
 const path = require("path");
 const readline = require("readline");
@@ -8,6 +22,7 @@ function askQuestion(query) {
     input: process.stdin,
     output: process.stdout
   });
+
   return new Promise((resolve) =>
     rl.question(query, (ans) => {
       rl.close();
@@ -17,33 +32,43 @@ function askQuestion(query) {
 }
 
 async function init() {
-  console.log("Welcome to TestForge - Automation Framework Starter");
+  console.log("🚀 Welcome to TestForge - Automation Framework Starter");
 
-  const answer = await askQuestion("Do you want to include sample page & test files? (y/n): ");
+  const answer = await askQuestion(
+    "Do you want to include sample page & test files? (y/n): "
+  );
+
   const withSamples = answer.trim().toLowerCase().startsWith("y");
-
   const targetDir = process.cwd();
 
-  // Always copy helpers
-  fs.copySync(path.join(__dirname, "helpers"), path.join(targetDir, "helpers"), { overwrite: true });
+  const srcDir = path.join(targetDir, "src");
 
-  // Copy generic folders
+  // Ensure src folder exists
+  fs.ensureDirSync(srcDir);
+
+  // Copy framework folders inside src
+  fs.copySync(path.join(__dirname, "helpers"), path.join(srcDir, "helpers"), { overwrite: true });
+  fs.copySync(path.join(__dirname, "utils"), path.join(srcDir, "utils"), { overwrite: true });
+
+  // Copy configs and reports to root
   fs.copySync(path.join(__dirname, "configs"), path.join(targetDir, "configs"), { overwrite: true });
   fs.copySync(path.join(__dirname, "reports"), path.join(targetDir, "reports"), { overwrite: true });
-  fs.copySync(path.join(__dirname, "utils"), path.join(targetDir, "utils"), { overwrite: true });
 
-  // Pages & Tests
   if (withSamples) {
-    fs.copySync(path.join(__dirname, "pages"), path.join(targetDir, "pages"), { overwrite: true });
-    fs.copySync(path.join(__dirname, "tests"), path.join(targetDir, "tests"), { overwrite: true });
+    fs.copySync(path.join(__dirname, "pages"), path.join(srcDir, "pages"), { overwrite: true });
+    fs.copySync(path.join(__dirname, "tests"), path.join(srcDir, "tests"), { overwrite: true });
+
     console.log("✅ Folder structure with sample files created.");
   } else {
-    fs.mkdirSync(path.join(targetDir, "pages"), { recursive: true });
-    fs.mkdirSync(path.join(targetDir, "tests"), { recursive: true });
+    fs.ensureDirSync(path.join(srcDir, "pages"));
+    fs.ensureDirSync(path.join(srcDir, "tests"));
+
     console.log("✅ Empty folder structure created.");
   }
 
-  console.log("🎉 Setup complete!");
+  console.log("\n🎉 Setup complete!");
+  console.log("Run tests using:");
+  console.log("npm test");
 }
 
 init();
