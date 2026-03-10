@@ -2,10 +2,13 @@
  * logger.js
  *
  * Description:
- * Utility logger used for internal framework logging.
+ * Logging utility used to capture important information during test execution.
  *
  * Responsibilities:
- * - Log execution flow
- * - Provide structured logging
- * - Assist in debugging automation runs
+ * - Log test steps
+ * - Log debug information
+ * - Record errors and warnings
+ *
+ * Output:
+ * Console logs and optional log files.
  */
