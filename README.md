@@ -1,182 +1,100 @@
-# TestForge Automation Framework Structure
+⚡ TestForge
 
-**TestForge** is a scalable automation testing framework boilerplate designed for modern web testing.
-It provides a clean folder structure, reusable page objects, utilities, and organized test suites.
+TestForge is a lightweight automation framework starter designed to help developers and QA engineers quickly set up a structured testing project.
 
----
+Instead of spending time creating folders, organizing page objects, or setting up reusable utilities, TestForge provides a clean and scalable project layout out of the box. This allows you to focus on writing tests rather than managing project structure.
 
-# 📦 Installation
+The framework structure is intentionally tool-agnostic, making it suitable for a wide range of automation tools including Selenium, Playwright, Cypress, TestCafe, or other UI and API testing libraries.
 
-Install using **npx**
+🚀 Key Features
 
-```
-npx rg-testforge
-```
+Pre-configured project structure for automation testing
 
-or install globally
+Compatible with multiple automation tools and frameworks
 
-```
-npm install rg-testforge
-```
+Built-in helper utilities for common tasks (logging, error handling, XPath utilities)
 
----
+Centralized configuration management for environments and browsers
 
-# 📁 Project Structure
+Utility modules for shared functionality such as data generation and API interactions
 
-```
-project-root
+Ready to integrate with popular reporting tools such as Allure, Extent Reports, or Playwright reports
+
+Designed to keep test projects modular, organized, and easy to maintain
+
+📁 Project Structure
+
+When you initialize a new project using TestForge, the following directory structure is created:
+
+<your_project_name>/
+
+├─ helpers/
+│   ├─ xpathHandler.js
+│   ├─ errorHandler.js
+│   └─ logger.js
 │
-├── artifacts
-│   ├── reports
-│   └── screenshots
+├─ pages/
+│   ├─ common/        # Reusable UI components (navigation, footer, modals)
+│   ├─ auth/          # Authentication related pages (login, signup, reset password)
+│   └─ settings/      # User settings, profile, preferences
 │
-├── scripts
+├─ tests/
+│   ├─ auth/          # Authentication test scenarios
+│   └─ settings/      # Tests related to user settings
 │
-├── src
-│   │
-│   ├── configs
-│   │   ├── env.config.js
-│   │   └── example.config.js
-│   │
-│   ├── core
-│   │   └── common_page_objects
-│   │       ├── action-utils.js
-│   │       ├── button.js
-│   │       ├── navigation.js
-│   │       └── ui_selectors.js
-│   │
-│   ├── page-objects
-│   │
-│   ├── test-data
-│   │   ├── login.fixture.json
-│   │   └── sampledata.json
-│   │
-│   ├── tests-suites
-│   │   ├── auth
-│   │   │   └── login.test.js
-│   │   │
-│   │   └── settings
-│   │       └── settings.test.js
-│   │
-│   └── utils
-│       ├── api.client.js
-│       ├── dataGenerator.js
-│       ├── errorHandler.js
-│       ├── logger.js
-│       └── xpathHandler.js
+├─ configs/
+│   └─ example.config.js   # Environment or browser configuration
 │
-└── README.md
-```
+├─ reports/                # Location for generated test reports
+│
+├─ utils/
+│   └─ dataGenerator.js    # Utility for generating random test data
+│
+├─ package.json
+└─ README.md
 
----
+This structure helps maintain clear separation between test logic, page objects, utilities, and configuration, making automation projects easier to scale and maintain over time.
 
-# 📂 Folder Explanation
+📦 Installation
 
-### artifacts
+Install TestForge globally using npm:
 
-Stores test execution outputs.
+npm install -g testforge
+🛠 Getting Started
+1. Create a new project directory
+mkdir my_automation_project
+cd my_automation_project
+2. Initialize the framework
 
-```
-reports      → Test execution reports
-screenshots  → Failure screenshots
-```
+Run the TestForge CLI command:
 
----
+testforge
+3. Select your setup
 
-### configs
+You can choose between:
 
-Environment configuration files.
+Generic Structure – creates an empty framework structure ready for any automation tool
 
-```
-env.config.js       → Environment settings
-example.config.js   → Sample configuration
-```
+Sample Setup – generates example page objects and test files to demonstrate how the structure works
 
----
+📑 Example Usage
+Using Playwright
 
-### core/common_page_objects
+Add Playwright test specifications inside the tests/ directory
 
-Reusable UI interaction components.
+Implement page objects inside the pages/ directory
 
-```
-action-utils.js → common UI actions
-button.js       → button interactions
-navigation.js   → navigation helpers
-ui_selectors.js → shared selectors
-```
+Configure browser or environment settings in configs/example.config.js
 
----
+Using Selenium
 
-### page-objects
+Implement the Page Object Model within the pages/ directory
 
-Page Object Model implementation.
+Write test cases using JUnit or TestNG inside tests/
 
-Each page should contain UI actions and locators for a specific page.
+Manage WebDriver and environment configuration inside configs/
 
-Example:
-
-```
-loginPage.js
-settingsPage.js
-```
-
----
-
-### test-data
-
-Stores test input data.
-
-```
-login.fixture.json
-sampledata.json
-```
-
----
-
-### tests-suites
-
-Test cases organized by feature.
-
-```
-auth
-settings
-```
-
-Example:
-
-```
-login.test.js
-settings.test.js
-```
-
----
-
-### utils
-
-Helper utilities used across the framework.
-
-```
-api.client.js
-dataGenerator.js
-errorHandler.js
-logger.js
-xpathHandler.js
-```
-
----
-
-# ⚡ Features
-
-✔ Clean automation framework structure
-✔ Page Object Model support
-✔ Reusable utilities
-✔ Config driven testing
-✔ Organized test suites
-✔ Easy setup using CLI
-
----
-
-# 👨‍💻 Author
+👨‍💻 Author
 
 Ritik Gowardhan
 
